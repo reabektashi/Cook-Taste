@@ -1,0 +1,373 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    text-align: left; /* Align all text and content to the left */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    width: 100%;
+    position: relative; /* Ensure navbar is positioned for z-index to apply */
+    z-index: 10; /* Higher value to ensure it appears above the carousel */
+  }
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+    width: 100%;
+  }
+  
+  .navbar-brand {
+    margin-right: 20px; /* Space between logo and navbar links */
+  }
+  
+  .navbar-brand img {
+    height: 60px;
+    width: auto;
+  }
+  
+  /* Navbar Links (aligned to the left) */
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    list-style: none;
+    margin-left: 20px; /* Space between logo and first link */
+  }
+  
+  .navbar-nav .nav-link {
+    font-weight: bold;
+    margin-right: 20px; /* Space between links */
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+   
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #d4d2d2;
+  }
+  
+  .navbar-nav .dropdown {
+    position: relative;
+    border-radius: 0;
+   
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f8f9fa;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    list-style-type: none;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-item {
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Search Bar and Icons on the Right */
+  .search-container {
+    position: relative;
+    margin-left: auto; /* Pushes the search bar to the right */
+  }
+  
+  #searchInput {
+    width: 200px;
+    padding: 8px 12px;
+    border: 1px solid #d4d2d2;;
+    border-radius: 20px;
+    outline: none;
+    background-color: #f9f9f9;
+    transition: width 0.4s ease;
+  }
+  
+  #searchInput:focus {
+    width: 250px;
+    border-color: #000000;
+  }
+  
+  #searchIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #000000;
+  }
+  
+  #searchIcon:hover {
+    opacity: 0.8;
+  }
+  
+  /* Icons Section */
+  .icons {
+    margin-left: 15px;
+  }
+  
+  .icons a {
+    margin-left: 15px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .icons a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10; /* Ensure it appears above other elements */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent background scrolling */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+    background-color: #fff;
+    position: absolute; /* Stay within the modal container */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+p {
+    margin-top: 10px;
+}
+
+  /* Mobile View */
+  @media (max-width: 768px) {
+    .navbar-links {
+      flex-direction: column;
+      display: none;
+      width: 100%;
+      padding-top: 1rem;
+      background-color: #fff;
+    }
+  
+    .navbar-links.active {
+      display: block;
+    }
+  
+    .navbar-nav {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .navbar-nav .nav-link {
+      padding: 0.5rem 1rem;
+      width: 100%;
+      text-align: left;
+    }
+  
+    .search-container {
+      margin-top: 1rem;
+      width: 100%;
+    }
+  
+    #searchInput {
+      width: 100%;
+    }
+  
+    #searchIcon {
+      right: 20px;
+    }
+  }
+
+/* General Carousel Styling */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    z-index: 1; /* Lower value to place carousel behind other elements */
+  }
+  
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-item {
+    min-width: 100%;
+    position: relative;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+  
+  /* Indicators */
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+  }
+  
+  .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background: gray;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .carousel-indicators .active {
+    background: white;
+  }
+  
+  /* Caption Styling */
+  .carousel-caption {
+    position: absolute;
+    color: white;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  .carousel-caption p {
+    font-size: 28px;
+    margin-top: 10px;
+  }
+  
+  .btn.read-more-btn {
+    padding: 10px 15px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+  .btn.read-more-btn:hover {
+    background: white;
+    color: black;
+  }
+  
+  /* Controls */
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    border-radius: 50%;
+  }
+  
+  .carousel-control-prev {
+    left: 10px;
+  }
+  
+  .carousel-control-next {
+    right: 10px;
+  }
+  
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+  }
+  
