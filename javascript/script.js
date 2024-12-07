@@ -1,3 +1,5 @@
+//The Header at home,recipe pages,aboutUs page
+
 // JavaScript for toggling search input visibility
 const searchIcon = document.getElementById('searchIcon');
 const searchInput = document.getElementById('searchInput');
@@ -60,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
+//For the carousel (slideshow)
 
 document.addEventListener("DOMContentLoaded", () => {
     const carouselInner = document.querySelector(".carousel-inner");
@@ -98,4 +100,23 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  //AboutUs Page
+  
+  // Open Modal
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = "flex";
+}
+// Close Modal
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = "none";
+}
+// Close modal when clicking outside content
+window.addEventListener("click", (e) => {
+  document.querySelectorAll(".modal").forEach((modal) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
   

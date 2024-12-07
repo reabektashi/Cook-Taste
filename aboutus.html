@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cook&Taste-Desserts</title>
+  <title>Cook&Taste-About Us</title>
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="Css/style.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 
 <body>
     <!-- Navigation Bar -->
@@ -114,75 +115,104 @@
     </div>
 </div>
 
+ <!-- About Us Section -->
+ <div class="container1">
+    <h1>WHO WE ARE?</h1>
+    <p>At Cook&Taste, our passion lies in curating exceptional recipes and culinary experiences. We aim to ignite the love for cooking in home chefs and food enthusiasts alike.</p>
+    <p>Established in 2024, we firmly believe that anyone can craft delectable dishes with the right guidance and quality ingredients. Our diverse team includes skilled chefs, food bloggers, and nutritionists who are committed to sharing their expertise.</p>
+    <p>No matter your experience level, our extensive collection of recipes is designed to inspire and challenge every cook. Embark on this culinary adventure with us and uncover exciting flavors, techniques, and ideas for your kitchen.</p>
+  </div>
 
-<header>
-    <img src="Images/dessertbackground.jpg" alt="Food Recipes Background">
-    <h1>Dessert Recipes</h1>
-    <p>Your guide to delicious dessert ideas!</p>
-</header>
 
-<div class="container">
-    <!-- Recipe Card 1 -->
-    <div class="recipe-card">
-        <img src="Images/ChocolateChipBananaBreadCoffeeCake.jpg" alt="Chocolate Chip Banana Bread Coffee Cake" class="recipe-image">
-        <div class="card-body">
-            <h5 class="card-title">Chocolate Chip Banana Bread Coffee Cake</h5>
-            <p class="card-text">A moist coffee cake infused with ripe bananas and dotted with rich chocolate chips. Topped with a buttery crumble for a delightful treat perfect for breakfast or dessert.</p>
-            <a href="#" class="recipe-button">View Recipe</a>
+  <!-- Grid Section -->
+ <h2>Meet Our Team</h2>
+ <div class="container2">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <img src="Images/Staff.jpg" class="card-img1" alt="Chef John" style="max-height: 200px; object-fit: cover;">
+          <div class="card-body1">
+            <h5 class="card-title1">Chef John</h5>
+            <p class="card-text1">Lead Chef & Recipe Developer</p>
+            <button class="btn1" onclick="openModal('staff3Modal')">More info</button>
+          </div>
         </div>
-    </div>
-
-    <!-- Recipe Card 2 -->
-    <div class="recipe-card">
-        <img src="Images/Red-Velvet-Cake.jpg" alt="Red Velvet Cake" class="recipe-image">
-        <div class="card-body">
-            <h5 class="card-title">Red Velvet Cake</h5>
-            <p class="card-text">A luscious cake with a striking red hue, featuring a velvety texture and a hint of cocoa. Frosted with creamy cream cheese icing, it's a delightful dessert for any celebration.</p>
-            <a href="#" class="recipe-button">View Recipe</a>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="Images/staff1.jpg" class="card-img1" alt="Chef Emma" style="max-height: 200px; object-fit: cover;">
+          <div class="card-body1">
+            <h5 class="card-title1">Chef Emma</h5>
+            <p class="card-text1">Food Blogger & Nutritionist</p>
+            <button class="btn1" onclick="openModal('staff2Modal')">More info</button>
+          </div>
         </div>
-    </div>
-
-    <!-- Recipe Card 3 -->
-    <div class="recipe-card">
-        <img src="Images/Cake-Pops.jpg" alt="Cake Pops" class="recipe-image">
-        <div class="card-body">
-            <h5 class="card-title">Cake Pops</h5>
-            <p class="card-text">Bite-sized treats made from crumbled cake and frosting, shaped into balls, and dipped in chocolate. Perfect for parties, these fun snacks offer a portable way to enjoy cake.</p>
-            <a href="#" class="recipe-button">View Recipe</a>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="Images/staff2.jpg" class="card-img1" alt="Chef Alex" style="max-height: 200px; object-fit: cover;">
+          <div class="card-body1">
+            <h5 class="card-title1">Chef Alex</h5>
+            <p class="card-text1">Culinary Instructor</p>
+            <button class="btn1" onclick="openModal('staff1Modal')">More info</button>
+          </div>
         </div>
+      </div>
     </div>
-
-    <!-- Recipe Card 4 -->
-    <div class="recipe-card">
-        <img src="Images/Chocolate-Pumpkin-Muffins.jpg" alt="Pumpkin Chocolate Chip Muffins" class="recipe-image">
-        <div class="card-body">
-            <h5 class="card-title">Pumpkin Chocolate Chip Muffins</h5>
-            <p class="card-text">Moist and fluffy muffins infused with pumpkin puree and studded with rich chocolate chips. A delightful fall treat that perfectly balances sweet and spiced flavors.</p>
-            <a href="#" class="recipe-button">View Recipe</a>
+  </div>
+  
+  <!-- Modal for Member 1 -->
+  <div class="modal1" id="staff3Modal">
+    <div class="modal-dialog1">
+      <div class="modal-content1">
+        <div class="modal-header1">
+          <h5>Chef John</h5>
+          <span class="close1" onclick="closeModal('staff3Modal')">&times;</span>
         </div>
-    </div>
-
-    <!-- Recipe Card 5 -->
-    <div class="recipe-card">
-        <img src="Images/Chocolate-Pudding-Cake.jpg" alt="Chocolate Pudding Cake" class="recipe-image">
-        <div class="card-body">
-            <h5 class="card-title">Chocolate Pudding Cake</h5>
-            <p class="card-text">Rich chocolate cake with a gooey pudding center, perfect warm with vanilla ice cream. A chocolate lover's delight!</p>
-            <a href="#" class="recipe-button">View Recipe</a>
+        <div class="modal-body1">
+          <img src="Images/Staff.jpg" alt="Chef John" class="modal-img1">
+          <p>Chef John is a grill master and BBQ expert with extensive knowledge in outdoor cooking techniques.</p>
+          <button class="btn1" onclick="closeModal('staff3Modal')">Close</button>
         </div>
+      </div>
     </div>
-
-    <!-- Recipe Card 6 -->
-    <div class="recipe-card">
-        <img src="Images/Oreo-Cheesecake.jpg" alt="Oreo Cheesecake" class="recipe-image">
-        <div class="card-body">
-            <h5 class="card-title">Oreo Cheesecake</h5>
-            <p class="card-text">Creamy cheesecake swirled with Oreo cookie crumbs, set on a chocolate cookie crust. A delightful treat for Oreo lovers!</p>
-            <a href="#" class="recipe-button">View Recipe</a>
+  </div>
+  
+  <!-- Modal for Member 2 -->
+  <div class="modal1" id="staff2Modal">
+    <div class="modal-dialog1">
+      <div class="modal-content1">
+        <div class="modal-header1">
+          <h5>Chef Emma</h5>
+          <span class="close1" onclick="closeModal('staff2Modal')">&times;</span>
         </div>
+        <div class="modal-body1">
+          <img src="Images/staff1.jpg" alt="Chef Emma" class="modal-img1">
+          <p>Chef Emma is a specialist in pastry and baking, with a passion for creating sweet masterpieces.</p>
+          <button class="btn1" onclick="closeModal('staff2Modal')">Close</button>
+        </div>
+      </div>
     </div>
-</div>
-
+  </div>
+  
+  <!-- Modal for Member 3 -->
+  <div class="modal1" id="staff1Modal">
+    <div class="modal-dialog1">
+      <div class="modal-content1">
+        <div class="modal-header1">
+          <h5>Chef Alex</h5>
+          <span class="close1" onclick="closeModal('staff1Modal')">&times;</span>
+        </div>
+        <div class="modal-body1">
+          <img src="Images/staff2.jpg" alt="Chef Alex" class="modal-img1">
+          <p>Chef Alex is an experienced culinary instructor and content creator with over 10 years of experience in the food industry.</p>
+          <button class="btn1" onclick="closeModal('staff1Modal')">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
 <!-- Footer -->
 <footer>
     <div class="social-icon">
@@ -202,20 +232,6 @@
     <p>© 2024 Cook&Taste. All rights reserved.</p>
 </footer>
 
-
-
-
-
 <script src="javascript/script.js"></script>
 </body>
 </html>
-
-
-
-
-
-    
-
-
-
- 
