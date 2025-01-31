@@ -1,0 +1,343 @@
+/* Common Table Styles */
+.table-container {
+    max-width: 100%; /* Ensure it doesn't exceed the container */
+    margin: 20px 0; /* Add some margin for spacing */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders are collapsed */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  }
+  
+  td, th {
+    border: 1px solid #dddddd; /* Border for table cells */
+    text-align: left; /* Align text to the left */
+    padding: 12px; /* Padding inside cells */
+    overflow: hidden; /* Prevent overflow */
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words to fit within the cell */
+    max-width: 200px; /* Set a max width for cells to control layout */
+  }
+  
+  th {
+    background-color: #007bff; /* Blue background for header */
+    color: white; /* White text for header */
+    font-weight: bold; /* Bold text for header */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background for even rows */
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #ffffff; /* White background for odd rows */
+  }
+  
+  tr:hover {
+    background-color: #e9ecef; /* Highlight row on hover */
+  }
+  
+  /* Button Styles */
+  .button-update, .button-delete {
+    background-color: #007bff; /* Blue background for buttons */
+    color: white; /* White text for buttons */
+    border: none; /* Remove border */
+    padding: 8px 12px; /* Padding for buttons */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .button-update:hover, .button-delete:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        box-sizing: border-box;
+      }
+   
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+      }
+    
+      .button-update {
+        width: 48%; /* Adjust as needed to leave space between buttons */
+        height: 100%;
+        text-align: center;
+        appearance: none;
+        background-color: rgb(81, 174, 145);
+        border: 1px solid rgba(27, 31, 35, 0.15);
+        border-radius: 6px;
+        box-shadow: rgba(173, 226, 100, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+        box-sizing: border-box;
+        cursor: pointer;
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Inherit color from parent button */
+      }
+    
+      .button-update a, .button-delete a {
+        cursor: pointer;
+        color: rgb(49, 48, 48);
+        text-decoration: none;
+      }
+    
+      .button-delete {
+        width: 48%; /* Adjust as needed to leave space between buttons */
+        height: 100%;
+        text-align: center;
+        appearance: none;
+        background-color: rgb(205, 96, 96);
+        border: 1px solid rgba(27, 31, 35, 0.15);
+        border-radius: 6px;
+        box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+        box-sizing: border-box;
+        cursor: pointer;
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Inherit color from parent button */
+      }
+    
+      .button-add {
+        background-color: #007bff; /* Green background for add buttons */
+        color: white; /* White text for buttons */
+        border: none; /* Remove border */
+        padding: 10px 20px; /* Padding for buttons */
+        border-radius: 5px; /* Rounded corners */
+        font-size: 16px; /* Font size */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+        margin: 10px; /* Margin for spacing */
+    }
+    
+    .button-add:hover {
+        background-color: #5ab3eb; /* Darker green on hover */
+        transform: scale(1.05); /* Slightly enlarge button on hover */
+    }
+    
+    /* Centering the button container */
+    .button-container {
+        display: flex; /* Use flexbox for alignment */
+        justify-content: center; /* Center the buttons */
+        margin: 20px 0; /* Add margin for spacing */
+    }
+      .box-add {
+        display: flex;
+        justify-content: end;
+        padding-bottom: 10px;
+      }
+      
+      @media (min-width: 768px) {
+        .button-add {
+          font-size: 10px;
+          padding: 10px 10px;
+        }
+      }
+      @media only screen and (max-width: 500px) {
+        .table {
+          padding: 15px;
+          width: 50%;
+          /* margin-left: 25px; */
+          margin-left: 100px;
+        }
+      
+        td, th {
+          padding: 5px;
+          font-size: 12px; /* Adjust the font size for better readability on smaller screens */
+          display: flex;
+          flex-direction: column;
+        }
+        header {
+          width: 100%;
+        }
+      }
+        
+      @media only screen and (max-width: 1024px) {
+        .table {
+          padding: 15px;
+          width: 50%;
+          /* margin-left: 25px; */
+          margin-left: 100px;
+        }
+      
+        td, th {
+          padding: 5px;
+          font-size: 12px; /* Adjust the font size for better readability on smaller screens */
+          display: flex;
+          flex-direction: column;
+        }
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Arial', sans-serif;
+        text-align: left; /* Align all text and content to the left */
+        margin: 0;
+        padding: 0;
+      }
+      /* Navbar Styles */
+      .navbar {
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem 2rem;
+        width: 100%;
+        position: relative; /* Ensure navbar is positioned for z-index to apply */
+        z-index: 10; /* Higher value to ensure it appears above the carousel */
+      }
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Align items vertically */
+        width: 100%;
+      }
+      
+      .navbar-brand {
+        margin-right: 20px; /* Space between logo and navbar links */
+      }
+      
+      .navbar-brand img {
+        height: 60px;
+        width: auto;
+      }
+      
+      /* Navbar Links (aligned to the left) */
+      .navbar-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      
+      .navbar-nav {
+        display: flex;
+        list-style: none;
+        margin-left: 20px; /* Space between logo and first link */
+      }
+      
+      .navbar-nav .nav-link {
+        font-weight: bold;
+        margin-right: 20px; /* Space between links */
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s ease;
+       
+      }
+      
+      .navbar-nav .nav-link:hover {
+        color: #d4d2d2;
+      }
+      
+      .navbar-nav .dropdown {
+        position: relative;
+        border-radius: 0;
+       
+      }
+      
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #f8f9fa;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        min-width: 160px;
+        list-style-type: none;
+      }
+      
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      
+      .dropdown-item {
+        padding: 10px 20px;
+        color: #333;
+        text-decoration: none;
+        display: block;
+      }
+      
+      .dropdown-item:hover {
+        background-color: #e9ecef;
+      }
+      
+      /* Search Bar and Icons on the Right */
+      .search-container {
+        position: relative;
+        margin-left: auto; /* Pushes the search bar to the right */
+      }
+      
+      #searchInput {
+        width: 200px;
+        padding: 8px 12px;
+        border: 1px solid #d4d2d2;;
+        border-radius: 20px;
+        outline: none;
+        background-color: #f9f9f9;
+        transition: width 0.4s ease;
+      }
+      
+      #searchInput:focus {
+        width: 250px;
+        border-color: #000000;
+      }
+      
+      #searchIcon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #000000;
+      }
+      
+      #searchIcon:hover {
+        opacity: 0.8;
+      }
+      
+      /* Icons Section */
+      .icons {
+        margin-left: 15px;
+      }
+      
+      .icons a {
+        margin-left: 15px;
+        color: #333;
+        text-decoration: none;
+      }
+      
+      .icons a:hover {
+        opacity: 0.8;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: #ff6600;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            padding: 10px;
+        }
+      
+        .navbar-links ul {
+            flex-direction: column;
+        }
+      
+        .navbar-toggler {
+            display: block;
+        }
+      
+        .navbar-links.show {
+            display: flex;
+        }
+      }
+      
+    
