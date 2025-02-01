@@ -55,13 +55,10 @@ class RegisterController {
 
         // If there are no errors, proceed with registration
         if (empty($errors)) {
-           
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);  // Hash the password
-
             $role = 'user'; // Default role
 
-            // Create a new User object
-            $user = new User(null, $firstName, $lastName, $email, $hashedPassword, $phoneNumber, $birthDate, $role);
+            // Create a new User object with the plain text password
+            $user = new User(null, $firstName, $lastName, $email, $password, $phoneNumber, $birthDate, $role);
             
             // Insert the user into the database
             $this->userRepository->insertUser($user);

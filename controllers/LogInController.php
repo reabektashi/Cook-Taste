@@ -21,14 +21,8 @@ class LogInController {
         if (!$user) {
             return "Email not found!";
         } else {
-            $storedPasswordHash = $user['password']; // Hashed password from DB
-
-            // Debugging logs (Check PHP error log)
-            error_log("Entered Password: " . $password);
-            error_log("Stored Password Hash: " . $storedPasswordHash);
-
-            // Verify password
-            if (password_verify($password, $storedPasswordHash)) {
+            // Check if the entered password matches the stored password (plain text comparison)
+            if ($password === $user['password']) {
                 session_start();
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['email'] = $user['email'];

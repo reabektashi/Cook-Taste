@@ -27,7 +27,7 @@ class UserRepository {
         $firstName = $user->getFirstName();
         $lastName = $user->getLastName();
         $email = $user->getEmail();
-        $password = password_hash($user->getPassword(), PASSWORD_DEFAULT); // Hash the password
+        $password = $user->getPassword(); // Use plain text password
         $phoneNumber = $user->getPhoneNumber();
         $birthDate = $user->getBirthDate();
         $role = $user->getRole();
