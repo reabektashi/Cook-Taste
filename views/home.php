@@ -1,3 +1,17 @@
+<?php
+session_start();
+$hide = "";
+if (isset($_SESSION['role'])) {
+    if ($_SESSION['role'] == "admin")
+        $hide = "";
+    else
+        $hide = "hide";
+} else {
+    $hide = "hide";
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +25,6 @@
 </head>
 
 <body>
-    <!-- Navigation Bar -->
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-container">
@@ -30,7 +43,7 @@
                         </ul>
                     </li>
                     <li><a class="nav-link" href="../views/aboutus.php">About Us</a></li>
-                    <li><a class="nav-link" href="../views/dashboard.php">Dashboard</a></li>
+                    <li><a class="nav-link" href="../views/dashboard.php"class="<?php echo $hide ?>">Dashboard</a></li>
                 </ul>
             </div>
             <div class="search-container">

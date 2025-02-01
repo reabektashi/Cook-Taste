@@ -50,7 +50,7 @@ if (isset($_SESSION['role'])) {
         </ul>
     </li>
     <li><a class="nav-link" href="../views/aboutus.php">About Us</a></li>
-    <li><a class="nav-link" href="../views/dashboard.php">Dashboard</a></li>
+    <li><a class="nav-link" href="../views/dashboard.php"class="<?php echo $hide ?>">Dashboard</a></li>
       </ul>
         </div>
         <div class="search-container">
