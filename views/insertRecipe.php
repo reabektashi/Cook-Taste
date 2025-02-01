@@ -20,13 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST["description"];
     $ingredients = $_POST["ingredients"];
     $steps = $_POST["instructions"]; // Capture instructions
-
+    $steps = $_POST["$steps"]; 
+   
     // Validate input fields
-    if (empty($name) || empty($description) || empty($ingredients) || empty($steps)) {
+    if (empty($name) || empty($description) || empty($ingredients) || empty($steps) empty($image)) {
         $error = "All fields are required!"; // Set error message if validation fails
     } else {
         // Create a new Recipe object
-        $recipe = new Recipe(null, $name, $description, $ingredients, $steps);
+        $recipe = new Recipe(null, $name, $description, $ingredients, $steps, $image);
         
         // Create a RecipeController instance and insert the recipe
         $recipeController = new RecipeController();
@@ -141,8 +142,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="input-field right">
                         <input type="text" name="instructions" placeholder="Instructions" id="instructions" required>
                     </div>
-                    <div class="error-message" id="instructionsError"></div>
-                </div>
+                    <div class="error-message" id="instructionsError"></div>/
+                    
+                    <div class="input-field right">
+                    <input type="file" name="image" placeholder="Recipe image" id="image">
+                    </div>
+                    <div class="error-message" id="imageError"></div>
+                  </div>
             </div>
 
             <div class="btn-group">
@@ -164,13 +170,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         let ingredientsError = document.getElementById("ingredientsError");
         let instructions = document.getElementById("instructions").value.trim();
         let instructionsError = document.getElementById("instructionsError");
-
+        let imageInput = document.getElementById("image");
+        let imageError = document.getElementById("imageError");
         // Clear error messages
         recipeNameError.innerText = '';
         descriptionError.innerText = '';
         ingredientsError.innerText = '';
         instructionsError.innerText = '';
-
+        imageError.innerText = '';
+        
         let isValid = true;
 
         if (recipeName === "") {
@@ -190,6 +198,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (instructions === "") {
             instructionsError.innerText = "Please enter instructions!";
+            isValid = false;
+        }
+
+        if (imageUpload.files.length === 0) {
+            imageError.innerText = "Please upload an image!";
             isValid = false;
         }
 

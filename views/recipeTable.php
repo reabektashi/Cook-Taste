@@ -93,6 +93,7 @@ if (isset($_SESSION['role'])) {
             <th>Description</th>
             <th>Ingredients</th>
             <th>Steps</th>
+            <th>Image</th>
             <th>Actions</th>
         </tr>
                 </tr>
@@ -108,6 +109,7 @@ if (isset($_SESSION['role'])) {
                         <td>{$recipe['description']}</td>
                         <td>{$recipe['ingredients']}</td>
                         <td>{$recipe['steps']}</td>
+                        <td>{$recipe['image']}</td>
                         <td>
                             <div>
                                 <button class='button-update'>

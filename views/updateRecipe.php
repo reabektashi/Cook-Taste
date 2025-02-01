@@ -28,12 +28,13 @@ if (isset($_POST['submitBtn'])) {
     $description = $_POST["description"];
     $ingredients = $_POST["ingredients"];
     $steps = $_POST["instructions"];
+    $image = $_FILES["image"]["name"];
 
     // Validate input fields
-    if (empty($name) || empty($description) || empty($ingredients) || empty($steps)) {
+    if (empty($name) || empty($description) || empty($ingredients) || empty($steps) || empty($image)) {
         $error = "All fields are required!";
     } else {
-        $recipeRepository->updateRecipe($id, $name, $description, $ingredients, $steps);
+        $recipeRepository->updateRecipe($id, $name, $description, $ingredients, $steps, $image);
         header("location:../views/recipeTable.php");
         exit();
     }
@@ -124,8 +125,18 @@ if (isset($_POST['submitBtn'])) {
                 <div class="input-field left">
                     <input type="text" name="instructions" value="<?= $recipe['steps'] ?>" placeholder="Instructions" required>
                 </div>
-            </div>
-            <div class="btn-group">
+
+                <div class="input-field left">
+                <input type="file" name="image" id="image" onchange="displayFileName()">
+                <div class="error-message" id="imageError"></div>
+                <p id="errorImage" style="color: red;"></p>
+                <span id="selectedFileName" class="image">
+                <?= $recipe['image'] ?>
+            </span>
+          </div>
+       </div>
+
+    <div class="btn-group">
     <button type="submit" name="submitBtn" class="btn" style="background-color: #ff9800; color: white;">Update</button>
     <button type="button" onclick="window.location.href='../views/recipeTable.php'" class="btn" style="background-color: #ff9800; color: white;">Cancel</button>
            </div>
@@ -139,7 +150,8 @@ if (isset($_POST['submitBtn'])) {
         let description = document.querySelector("textarea[name='description']").value.trim();
         let ingredients = document.querySelector("input[name='ingredients']").value.trim();
         let instructions = document.querySelector("input[name='instructions']").value.trim();
-        
+        let imageInput = document.querySelector("input[name='image']");
+        let imageError = document.getElementById("imageError");
         let isValid = true;
 
         // Clear previous error messages
@@ -162,6 +174,11 @@ if (isset($_POST['submitBtn'])) {
 
         if (instructions === "") {
             alert("Please enter instructions!");
+            isValid = false;
+        }
+
+        if (imageUpload.files.length === 0) {
+            imageError.innerText = "Please upload an image!";
             isValid = false;
         }
 
