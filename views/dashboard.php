@@ -1,14 +1,8 @@
 <?php
 session_start();
-$hide = "";
-if (isset($_SESSION['role'])) {
-    if ($_SESSION['role'] == "admin") {
-        $hide = "";
-    } else {
-        $hide = "hide";
-    }
-} else {
-    $hide = "hide";
+if (!isset($_SESSION['role']) || $_SESSION['role'] != "admin") {
+    header("Location: home.php"); // Redirect to home if not admin
+    exit();
 }
 ?>
 <!DOCTYPE html>

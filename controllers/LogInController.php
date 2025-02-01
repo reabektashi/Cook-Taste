@@ -21,12 +21,12 @@ class LogInController {
         if (!$user) {
             return "Email not found!";
         } else {
-            // Check if the entered password matches the stored password (plain text comparison)
+            // Check if the entered password matches the stored password
             if ($password === $user['password']) {
                 session_start();
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['email'] = $user['email'];
-                $_SESSION['role'] = $user['role'];
+                $_SESSION['role'] = $user['role']; // Store user role in session
 
                 // Redirect to the home page
                 header("Location: ../views/home.php");
