@@ -20,10 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST["description"];
     $ingredients = $_POST["ingredients"];
     $steps = $_POST["instructions"]; // Capture instructions
-    $steps = $_POST["$steps"]; 
+    $image = $_POST["image"];
    
     // Validate input fields
-    if (empty($name) || empty($description) || empty($ingredients) || empty($steps) empty($image)) {
+    if (empty($name) || empty($description) || empty($ingredients) || empty($steps) || empty($image)) {
         $error = "All fields are required!"; // Set error message if validation fails
     } else {
         // Create a new Recipe object
