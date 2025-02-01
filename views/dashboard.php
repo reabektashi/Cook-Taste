@@ -72,7 +72,7 @@ if (isset($_SESSION['role'])) {
             <a href="#" id="favoriteIcon" title="Favorites">
                 <i class="fa fa-heart"></i>
             </a>
-            <a href="#" id="profileIcon" title="Profile" onclick="toggleModal()">
+            <a href="../views/login.php" id="profileIcon" title="Profile" onclick="toggleModal()">
                 <i class="fa fa-user"></i>
             </a>
             <?php
