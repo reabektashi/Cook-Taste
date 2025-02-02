@@ -7,22 +7,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["recipeName"];
     $description = $_POST["description"];
     $ingredients = $_POST["ingredients"];
-    $steps = $_POST["instructions"]; 
-    $image = $_POST["image"];
+    $steps = $_POST["instructions"];
+
+    // image upload
+    if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
+        $target_dir = "../Images/"; // Directory where images will be stored
+        $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+        $unique_name = uniqid("recipe_", true) . "." . $imageFileType;
+        $target_file = $target_dir . $unique_name;
+
+        
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            $imagePath = $target_file;
+        } else {
+            $error = "Error uploading the image.";
+        }
+    } else {
+        $error = "Please upload a valid image.";
+    }
 
     // Validate input fields
-    if (empty($name) || empty($description) || empty($ingredients) || empty($steps) || empty($image)) {
+    if (empty($name) || empty($description) || empty($ingredients) || empty($steps) || empty($imagePath)) {
         $error = "All fields are required!";
     } else {
-        // Create a new Recipe object
-        $recipe = new Recipe(null, $name, $description, $ingredients, $steps, $image );
         
-        // To Create a RecipeRepository instance and insert the recipe
+        $recipe = new Recipe(null, $name, $description, $ingredients, $steps, $imagePath);
+        
+        
         $recipeRepository = new RecipeRepository();
         $recipeRepository->insertRecipe($recipe);
         
-        // To Redirect to the recipe table page after successful insertion
-        header("location: ../views/recipeTable.php");
+        
+        header("Location: ../views/recipeTable.php");
         exit();
     }
 }
