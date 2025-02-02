@@ -47,9 +47,9 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != "admin") {
     <li class="dropdown">
         <a class="nav-link" href="#" id="navbarDropdown">Recipes</a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="../../recipes/food.php">Food</a></li>
-            <li><a class="dropdown-item" href="../../recipes/desserts.php">Desserts</a></li>
-            <li><a class="dropdown-item" href="../../recipes/sidedishes.php">Side Dishes</a></li>
+            <li><a class="dropdown-item" href="../views/recipes/food.php">Food</a></li>
+            <li><a class="dropdown-item" href="../views/recipes/desserts.php">Desserts</a></li>
+            <li><a class="dropdown-item" href="../views/recipes/sidedishes.php">Side Dishes</a></li>
         </ul>
     </li>
     <li><a class="nav-link" href="../views/aboutus.php">About Us</a></li>
