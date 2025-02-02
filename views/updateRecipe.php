@@ -96,6 +96,11 @@ if (isset($_POST['submitBtn'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../Css/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -168,7 +173,7 @@ if (isset($_POST['submitBtn'])) {
                 </div>
 
                 <div class="input-field left">
-                    <input type="file" name="image" id="image">
+                    <input type="file" name="image" id="image" onchange="displayFileName()">
                     <div class="error-message" id="imageError"></div>
                     <p id="errorImage" style="color: red;"></p>
                     <span id="selectedFileName" class="image">
