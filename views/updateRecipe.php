@@ -28,13 +28,59 @@ if (isset($_POST['submitBtn'])) {
     $description = $_POST["description"];
     $ingredients = $_POST["ingredients"];
     $steps = $_POST["instructions"];
+    
+    // Handle image upload
     $image = $_FILES["image"]["name"];
+    $target_dir = "../Images/"; // Directory where images will be stored
+    $target_file = $target_dir . basename($image);
+    $uploadOk = 1;
 
-    // Validate input fields
-    if (empty($name) || empty($description) || empty($ingredients) || empty($steps) || empty($image)) {
-        $error = "All fields are required!";
+    // Check if a new image is uploaded
+    if (!empty($image)) {
+        // Check if image file is a actual image or fake image
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($check === false) {
+            $error = "File is not an image.";
+            $uploadOk = 0;
+        }
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            $error = "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["image"]["size"] > 500000) {
+            $error = "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+            $error = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            // Do not upload the file
+            $error = "Sorry, your file was not uploaded.";
+        } else {
+            // If everything is ok, try to upload file
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                // Update the recipe with the new image
+                $recipeRepository->updateRecipe($id, $name, $description, $ingredients, $steps, $target_file);
+                header("location:../views/recipeTable.php");
+                exit();
+            } else {
+                $error = "Sorry, there was an error uploading your file.";
+            }
+        }
     } else {
-        $recipeRepository->updateRecipe($id, $name, $description, $ingredients, $steps, $image);
+        // If no new image is uploaded, keep the existing image
+        $recipeRepository->updateRecipe($id, $name, $description, $ingredients, $steps, $recipe['image']);
         header("location:../views/recipeTable.php");
         exit();
     }
@@ -50,11 +96,6 @@ if (isset($_POST['submitBtn'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../Css/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        .hide {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -127,19 +168,19 @@ if (isset($_POST['submitBtn'])) {
                 </div>
 
                 <div class="input-field left">
-                <input type="file" name="image" id="image" onchange="displayFileName()">
-                <div class="error-message" id="imageError"></div>
-                <p id="errorImage" style="color: red;"></p>
-                <span id="selectedFileName" class="image">
-                <?= $recipe['image'] ?>
-            </span>
-          </div>
-       </div>
+                    <input type="file" name="image" id="image">
+                    <div class="error-message" id="imageError"></div>
+                    <p id="errorImage" style="color: red;"></p>
+                    <span id="selectedFileName" class="image">
+                        <?= $recipe['image'] ?>
+                    </span>
+                </div>
+            </div>
 
-    <div class="btn-group">
-    <button type="submit" name="submitBtn" class="btn" style="background-color: #ff9800; color: white;">Update</button>
-    <button type="button" onclick="window.location.href='../views/recipeTable.php'" class="btn" style="background-color: #ff9800; color: white;">Cancel</button>
-           </div>
+            <div class="btn-group">
+                <button type="submit" name="submitBtn" class="btn" style="background-color: #ff9800; color: white;">Update</button>
+                <button type="button" onclick="window.location.href='../views/recipeTable.php'" class="btn" style="background-color: #ff9800; color: white;">Cancel</button>
+            </div>
         </form>
     </div>
 </div>
@@ -177,7 +218,7 @@ if (isset($_POST['submitBtn'])) {
             isValid = false;
         }
 
-        if (imageUpload.files.length === 0) {
+        if (imageInput.files.length === 0) {
             imageError.innerText = "Please upload an image!";
             isValid = false;
         }

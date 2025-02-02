@@ -5,13 +5,15 @@ class Recipe {
     private $description;
     private $ingredients;
     private $steps;
+    private $image; // Add image property
 
-    public function __construct($id, $name, $description, $ingredients, $steps) {
+    public function __construct($id, $name, $description, $ingredients, $steps, $image) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->ingredients = $ingredients;
         $this->steps = $steps;
+        $this->image = $image; // Initialize image property
     }
 
     // Getters
@@ -35,7 +37,10 @@ class Recipe {
         return $this->steps;
     }
 
-    
+    public function getImage() { // Add getter for image
+        return $this->image;
+    }
+
     // Setters
     public function setId($id) {
         $this->id = $id;
@@ -57,15 +62,17 @@ class Recipe {
         $this->steps = $steps;
     }
 
+    public function setImage($image) { // Add setter for image
+        $this->image = $image;
+    }
 
-
-    // Optionally, a __toString method for debugging or display purposes
     public function __toString() {
         return "ID: " . $this->id . 
                ", Name: " . $this->name . 
                ", Description: " . $this->description . 
                ", Ingredients: " . $this->ingredients . 
-               ", Steps: " . $this->steps; // <---- Missing semicolon added here
+               ", Steps: " . $this->steps . 
+               ", Image: " . $this->image; // Include image in string representation
     }
 }
 ?>

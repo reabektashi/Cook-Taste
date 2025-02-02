@@ -13,7 +13,6 @@ if (isset($_SESSION['role'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +26,6 @@ if (isset($_SESSION['role'])) {
         }
     </style>
 </head>
-
 <body>
 <nav class="navbar">
     <div class="navbar-container">
@@ -39,18 +37,18 @@ if (isset($_SESSION['role'])) {
         </button>
         <div class="navbar-links" id="navbarLinks">
         <ul class="navbar-nav">
-    <li><a class="nav-link" href="../views/home.php">Home</a></li>
-    <li class="dropdown">
-        <a class="nav-link" href="#" id="navbarDropdown">Recipes</a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="../../recipes/food.php">Food</a></li>
-            <li><a class="dropdown-item" href="../../recipes/desserts.php">Desserts</a></li>
-            <li><a class="dropdown-item" href="../../recipes/sidedishes.php">Side Dishes</a></li>
+            <li><a class="nav-link" href="../views/home.php">Home</a></li>
+            <li class="dropdown">
+                <a class="nav-link" href="#" id="navbarDropdown">Recipes</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../../recipes/food.php">Food</a></li>
+                    <li><a class="dropdown-item" href="../../recipes/desserts.php">Desserts</a></li>
+                    <li><a class="dropdown-item" href="../../recipes/sidedishes.php">Side Dishes</a></li>
+                </ul>
+            </li>
+            <li><a class="nav-link" href="../views/aboutus.php">About Us</a></li>
+            <li><a class="nav-link" href="../views/dashboard.php" class="<?php echo $hide ?>">Dashboard</a></li>
         </ul>
-    </li>
-    <li><a class="nav-link" href="../views/aboutus.php">About Us</a></li>
-    <li><a class="nav-link" href="../views/dashboard.php"class="<?php echo $hide ?>">Dashboard</a></li>
-      </ul>
         </div>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search Recipes">
@@ -71,62 +69,61 @@ if (isset($_SESSION['role'])) {
                 } else {
                     echo '<a href="../views/login.php"></a>';
                 }
-                ?>
-
+            ?>
         </div>
     </div>
 </nav>
 
-    <div class="table">
-        <div class="box-add">
-            <a href="../views/insertRecipe.php">
-                <br>
-                <button class="button-add">ADD RECIPE</button>
-            </a>
-        </div>
-        <div>
-            <table>
-                <tr>
-                <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Ingredients</th>
-            <th>Steps</th>
-            <th>Image</th>
-            <th>Actions</th>
-        </tr>
-                </tr>
-                <?php
-                include_once '../repository/RecipeRepository.php';
-                $recipeRepository = new RecipeRepository();
-                $recipes = $recipeRepository->getAllRecipes();
-                foreach ($recipes as $recipe) {
-                    echo "
-                    <tr>
-                        <td>{$recipe['id']}</td>
-                        <td>{$recipe['name']}</td>
-                        <td>{$recipe['description']}</td>
-                        <td>{$recipe['ingredients']}</td>
-                        <td>{$recipe['steps']}</td>
-                        <td>{$recipe['image']}</td>
-                        <td>
-                            <div>
-                                <button class='button-update'>
-                                    <a href='updateRecipe.php?id={$recipe['id']}'>Update</a>
-                                </button>
-                                <button class='button-delete' onclick='confirmDelete({$recipe['id']})'>
-                                    <a href='deleteRecipe.php?id={$recipe['id']}'>Delete</a>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    ";
-                }
-                ?>
-            </table>
-        </div>
+<div class="table">
+    <div class="box-add">
+        <a href="../views/insertRecipe.php">
+            <br>
+            <button class="button-add">ADD RECIPE</button>
+        </a>
     </div>
+    <div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Ingredients</th>
+                <th>Steps</th>
+                <th>Image</th> <!-- Column for Image -->
+                <th>Actions</th>
+            </tr>
+            <?php
+            include_once '../repository/RecipeRepository.php';
+            $recipeRepository = new RecipeRepository();
+            $recipes = $recipeRepository->getAllRecipes();
+            foreach ($recipes as $recipe) {
+                echo "
+                <tr>
+                    <td>{$recipe['id']}</td>
+                    <td>{$recipe['name']}</td>
+                    <td>{$recipe['description']}</td>
+                    <td>{$recipe['ingredients']}</td>
+                    <td>{$recipe['steps']}</td>
+                    <td>
+                        <img src='{$recipe['image']}' alt='Recipe Image' style='width: 100px; height: auto;'> <!-- Displaying the image -->
+                    </td>
+                    <td>
+                        <div>
+                            <button class='button-update'>
+                                <a href='updateRecipe.php?id={$recipe['id']}'>Update</a>
+                            </button>
+                            <button class='button-delete' onclick='confirmDelete({$recipe['id']})'>
+                                <a href='deleteRecipe.php?id={$recipe['id']}'>Delete</a>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                ";
+            }
+            ?>
+        </table>
+    </div>
+</div>
 </body>
 <script>
     function confirmDelete(recipeId) {

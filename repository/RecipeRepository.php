@@ -6,9 +6,9 @@ class RecipeRepository {
 
     function __construct() {
         $conn = new DatabaseConnection();
-        $this->connection = $conn->startConnection(); // Initialize the connection
+        $this->connection = $conn->startConnection(); 
 
-        // Check if the connection was successful
+   
         if ($this->connection === null) {
             die("Database connection failed. Please check your credentials.");
         }
@@ -23,7 +23,7 @@ class RecipeRepository {
 
         $sql = "SELECT * FROM recipes";
         $statement = $conn->query($sql);
-        $recipes = $statement->fetchAll(PDO::FETCH_ASSOC); // Fetch all recipes as an associative array
+        $recipes = $statement->fetchAll(PDO::FETCH_ASSOC); 
 
         return $recipes;
     }
@@ -46,20 +46,19 @@ class RecipeRepository {
         $description = $recipe->getDescription();
         $ingredients = $recipe->getIngredients();
         $steps = $recipe->getSteps();
+        $image = $recipe->getImage(); 
 
-        $sql = "INSERT INTO recipes (name, description, ingredients, steps) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO recipes (name, description, ingredients, steps, image) VALUES (?, ?, ?, ?, ?)";
         $statement = $conn->prepare($sql);
-        $statement->execute([$name, $description, $ingredients, $steps]);
-        echo "<script> alert('Recipe has been inserted successfully!') </script>";
+        $statement->execute([$name, $description, $ingredients, $steps, $image]); // Include image in the insert
     }
 
-    function updateRecipe($id, $name, $description, $ingredients, $steps) {
+    function updateRecipe($id, $name, $description, $ingredients, $steps, $image) {
         $conn = $this->connection;
 
-        $sql = "UPDATE recipes SET name=?, description=?, ingredients=?, steps=? WHERE id=?";
+        $sql = "UPDATE recipes SET name=?, description=?, ingredients=?, steps=?, image=? WHERE id=?";
         $statement = $conn->prepare($sql);
-        $statement->execute([$name, $description, $ingredients, $steps, $id]);
-        echo "<script> alert('Recipe has been updated successfully!') </script>";
+        $statement->execute([$name, $description, $ingredients, $steps, $image, $id]); // Include image in the update
     }
 
     function deleteRecipeById($id) {
