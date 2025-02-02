@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once '../controllers/RecipeController.php'; // Include the RecipeController
+include_once '../repository/RecipeRepository.php';
 $hide = "";
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == "admin")
@@ -11,6 +11,7 @@ if (isset($_SESSION['role'])) {
     $hide = "hide";
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +25,10 @@ if (isset($_SESSION['role'])) {
         .hide {
             display: none;
         }
+        img {
+            width: 100px; 
+            height: auto; 
+        }
     </style>
 </head>
 <body>
@@ -36,19 +41,19 @@ if (isset($_SESSION['role'])) {
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-links" id="navbarLinks">
-        <ul class="navbar-nav">
-            <li><a class="nav-link" href="../views/home.php">Home</a></li>
-            <li class="dropdown">
-                <a class="nav-link" href="#" id="navbarDropdown">Recipes</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../../recipes/food.php">Food</a></li>
-                    <li><a class="dropdown-item" href="../../recipes/desserts.php">Desserts</a></li>
-                    <li><a class="dropdown-item" href="../../recipes/sidedishes.php">Side Dishes</a></li>
-                </ul>
-            </li>
-            <li><a class="nav-link" href="../views/aboutus.php">About Us</a></li>
-            <li><a class="nav-link" href="../views/dashboard.php" class="<?php echo $hide ?>">Dashboard</a></li>
-        </ul>
+            <ul class="navbar-nav">
+                <li><a class="nav-link" href="../views/home.php">Home</a></li>
+                <li class="dropdown">
+                    <a class="nav-link" href="#" id="navbarDropdown">Recipes</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../../recipes/food.php">Food</a></li>
+                        <li><a class="dropdown-item" href="../../recipes/desserts.php">Desserts</a></li>
+                        <li><a class="dropdown-item" href="../../recipes/sidedishes.php">Side Dishes</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link" href="../views/aboutus.php">About Us</a></li>
+                <li><a class="nav-link" href="../views/dashboard.php" class="<?php echo $hide ?>">Dashboard</a></li>
+            </ul>
         </div>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search Recipes">
@@ -89,7 +94,7 @@ if (isset($_SESSION['role'])) {
                 <th>Description</th>
                 <th>Ingredients</th>
                 <th>Steps</th>
-                <th>Image</th> <!-- Column for Image -->
+                <th>Image</th> 
                 <th>Actions</th>
             </tr>
             <?php
@@ -105,7 +110,7 @@ if (isset($_SESSION['role'])) {
                     <td>{$recipe['ingredients']}</td>
                     <td>{$recipe['steps']}</td>
                     <td>
-                        <img src='{$recipe['image']}' alt='Recipe Image' style='width: 100px; height: auto;'> <!-- Displaying the image -->
+                        <img src='" . htmlspecialchars($recipe['image']) . "' alt='Recipe Image'> <!-- Displaying the image -->
                     </td>
                     <td>
                         <div>
@@ -124,7 +129,7 @@ if (isset($_SESSION['role'])) {
         </table>
     </div>
 </div>
-</body>
+
 <script>
     function confirmDelete(recipeId) {
         if (confirm("Are you sure you want to delete this recipe?")) {
@@ -134,4 +139,5 @@ if (isset($_SESSION['role'])) {
         }
     }
 </script>
+</body>
 </html>

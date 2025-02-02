@@ -62,7 +62,7 @@ class Recipe {
         $this->steps = $steps;
     }
 
-    public function setImage($image) { // Add setter for image
+    public function setImage($image) { 
         $this->image = $image;
     }
 
@@ -72,7 +72,7 @@ class Recipe {
                ", Description: " . $this->description . 
                ", Ingredients: " . $this->ingredients . 
                ", Steps: " . $this->steps . 
-               ", Image: " . $this->image; // Include image in string representation
+               ", Image: " . $this->image; 
     }
 }
 ?>

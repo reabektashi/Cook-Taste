@@ -27,7 +27,7 @@ class UserRepository {
         $firstName = $user->getFirstName();
         $lastName = $user->getLastName();
         $email = $user->getEmail();
-        $password = $user->getPassword(); // Use plain text password
+        $password = $user->getPassword(); 
         $phoneNumber = $user->getPhoneNumber();
         $birthDate = $user->getBirthDate();
         $role = $user->getRole();
@@ -37,7 +37,7 @@ class UserRepository {
         $statement->execute([$firstName, $lastName, $email, $password, $phoneNumber, $birthDate, $role]);
     }
 
-    function getUserByEmail($email) { // Fixed method name
+    function getUserByEmail($email) { 
         $conn = $this->connection;
 
         $sql = "SELECT * FROM users WHERE email=?";

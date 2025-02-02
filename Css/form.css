@@ -6,7 +6,7 @@
   }
   body {
     font-family: 'Arial', sans-serif;
-    text-align: left; /* Align all text and content to the left */
+    text-align: left; 
     margin: 0;
     padding: 0;
   }
@@ -16,18 +16,18 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem 2rem;
     width: 100%;
-    position: relative; /* Ensure navbar is positioned for z-index to apply */
-    z-index: 10; /* Higher value to ensure it appears above the carousel */
+    position: relative; 
+    z-index: 10; 
   }
   .navbar-container {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Align items vertically */
+    align-items: center; 
     width: 100%;
   }
   
   .navbar-brand {
-    margin-right: 20px; /* Space between logo and navbar links */
+    margin-right: 20px; 
   }
   
   .navbar-brand img {
@@ -45,12 +45,12 @@
   .navbar-nav {
     display: flex;
     list-style: none;
-    margin-left: 20px; /* Space between logo and first link */
+    margin-left: 20px; 
   }
   
   .navbar-nav .nav-link {
     font-weight: bold;
-    margin-right: 20px; /* Space between links */
+    margin-right: 20px; 
     color: #333;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -96,7 +96,7 @@
   /* Search Bar and Icons on the Right */
   .search-container {
     position: relative;
-    margin-left: auto; /* Pushes the search bar to the right */
+    margin-left: auto;
   }
   
   #searchInput {
@@ -171,7 +171,6 @@
   
   .container {
     width: 100%;
-    /* height: 100%; */
     background-position: center;
     background-color: transparent;
     background-size: cover;
@@ -184,16 +183,7 @@
     .forgot-password {
       color: rgb(15, 15, 15);
     }
-    /* 
-    .buttons {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        margin-top: 20px;
-        display: flex;
-        gap: 14px;
-        color: rgb(77, 165, 138);
-    } */
+  
     
     .form-box h1 {
       margin-bottom: 40px;
@@ -224,29 +214,7 @@
     .register-social li{
       padding: 10px;
     }
-    /* .form-box {
-      display: flex;
-      max-width: 1000px;
-      background: #fff;
-      padding: 30px 0px;
-      text-align: center;
-      height: 100%;
-    } */
-    /* .form-box{
-      background: transparent;
-    } */
-    
-    /* .input-field {
-      width: 300px;
-      background: #eaeaea;
-      margin: 15px 15px;
-      border-radius: 3px;
-      display: flex;
-      align-items: center;
-      max-height: 65px;
-      transition: max-height 0.5s;
-      overflow: hidden;
-    } */
+   
     .input-field {
       width: 300px;
       background: transparent;
@@ -338,7 +306,7 @@
     }
     
     .btn {
-      background-color: #ff9800; /* Orange color */
+      background-color: #ff9800; 
       color: white;
       border: none;
       padding: 10px 15px;
@@ -347,7 +315,7 @@
   }
   
   .btn:hover {
-      background-color: #e68900; /* Darker orange on hover */
+      background-color: #e68900;
   }
     .input-group {
       height: fit-content;

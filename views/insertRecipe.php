@@ -178,7 +178,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="input-field right">
                         <input type="text" name="instructions" placeholder="Instructions" id="instructions" required>
                     </div>
-                    <div class="error-message" id="instructionsError"></div>/
+                    <div class="error-message" id="instructionsError"></div>
                     
                     <div class="input-field right">
                     <input type="file" name="image" placeholder="Recipe image" id="image">

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once '../repository/RecipeRepository.php'; // Ensure this path is correct
+include_once '../repository/RecipeRepository.php'; 
 
 $hide = "";
 if (isset($_SESSION['role'])) {
@@ -79,7 +79,7 @@ if (isset($_POST['submitBtn'])) {
             }
         }
     } else {
-        // If no new image is uploaded, keep the existing image
+       
         $recipeRepository->updateRecipe($id, $name, $description, $ingredients, $steps, $recipe['image']);
         header("location:../views/recipeTable.php");
         exit();
@@ -229,7 +229,7 @@ if (isset($_POST['submitBtn'])) {
         }
 
         if (!isValid) {
-            event.preventDefault(); // Prevent form submission
+            event.preventDefault(); 
         }
     }
 </script>

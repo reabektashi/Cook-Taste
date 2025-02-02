@@ -1,4 +1,4 @@
-/* Global Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@
   
   body {
     font-family: 'Arial', sans-serif;
-    text-align: left; /* Align all text and content to the left */
+    text-align: left; 
     margin: 0;
     padding: 0;
   }
@@ -17,13 +17,13 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem 2rem;
     width: 100%;
-    position: relative; /* Ensure navbar is positioned for z-index to apply */
-    z-index: 10; /* Higher value to ensure it appears above the carousel */
+    position: relative; 
+    z-index: 10; 
   }
   .navbar-container {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Align items vertically */
+    align-items: center; 
     width: 100%;
   }
   
@@ -46,12 +46,12 @@
   .navbar-nav {
     display: flex;
     list-style: none;
-    margin-left: 20px; /* Space between logo and first link */
+    margin-left: 20px; 
   }
   
   .navbar-nav .nav-link {
     font-weight: bold;
-    margin-right: 20px; /* Space between links */
+    margin-right: 20px; 
     color: #333;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -97,7 +97,7 @@
   /* Search Bar and Icons on the Right */
   .search-container {
     position: relative;
-    margin-left: auto; /* Pushes the search bar to the right */
+    margin-left: auto; 
   }
   
   #searchInput {
@@ -210,7 +210,7 @@
     background-image: linear-gradient(#7d7b7b, #767676 50%);
   }
   a {
-    text-decoration: none; /* Remove underline from all anchor tags */
+    text-decoration: none; 
   }
   
   @media (min-width: 768px) {
@@ -225,16 +225,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 50vh; /* Zvogëlon hapësirën bosh poshtë */
-    padding: 20px; /* Shton pak hapësirë rreth butonave */
-    background-color: #e0e0e0; /* Nuancë pak më e errët */
-    border-radius: 12px; /* Këndet e buta për një dizajn modern */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Hijë e lehtë për një efekt elegant */
+    min-height: 50vh; 
+    padding: 20px;
+    background-color: #e0e0e0; 
+    border-radius: 12px; 
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); 
   }
   
   .box {
     display: flex;
-    flex-direction: row; /* Butonat të jenë krah njëri-tjetrit */
+    flex-direction: row; 
     gap: 20px;
     padding: 10px 20px;
   }

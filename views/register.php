@@ -1,5 +1,5 @@
 <?php
-include_once '../controllers/RegisterController.php'; // Include the controller
+include_once '../controllers/RegisterController.php'; 
 
 $nameError = "";
 $emailError = "";
@@ -17,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $birthDate = isset($_POST['birthDate']) ? $_POST['birthDate'] : "";
     $phoneNumber = isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : "";
 
-    // Create an instance of RegisterController
+   
     $registerController = new RegisterController();
 
-    // Use the register() function from the controller
+   
     $registrationResult = $registerController->register($firstName, $lastName, $email, $password, $birthDate, $phoneNumber); 
 
     // Check for registration errors

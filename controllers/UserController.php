@@ -16,12 +16,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $Error = "All fields are required!";
     } else {
         $userRepository = new UserRepository();
-        $userEmail = $userRepository->getUserByEmail($email); // Fixed method name
+        $userEmail = $userRepository->getUserByEmail($email); 
         if ($userEmail) {
             $emailError = "This email exists! Please try another one";
         } else {
             $user = new User(null, $firstName, $lastName, $email, $password, $phoneNumber, $birthDate, $role);
-            $userRepository->insertUser ($user); // Call the insertUser  method
+            $userRepository->insertUser ($user); 
             header("location: ../views/userTable.php");
         }
     }

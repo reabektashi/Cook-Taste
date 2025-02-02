@@ -12,7 +12,7 @@ class RegisterController {
     public function register($firstName, $lastName, $email, $password, $birthDate, $phoneNumber) {
         $errors = [];
 
-        // Validate first and last name
+   // Validate
         if (empty($firstName)) {
             $errors[] = "First name is required!";
         }
@@ -20,17 +20,17 @@ class RegisterController {
             $errors[] = "Last name is required!";
         }
 
-        // Validate email format
+     
         if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors[] = "Valid email is required!";
         }
 
-        // Check if email already exists
+      
         if ($this->userRepository->getUserByEmail($email)) {
             $errors[] = "This email already exists! Please try another one.";
         }
 
-        // Validate password strength: minimum length, 1 uppercase letter, 1 number, and 1 special character
+       
         if (empty($password)) {
             $errors[] = "Password is required!";
         } elseif (strlen($password) < 8) {
@@ -43,12 +43,11 @@ class RegisterController {
             $errors[] = "Password must contain at least one special character!";
         }
 
-        // Validate birth date
         if (empty($birthDate)) {
             $errors[] = "Birth date is required!";
         }
 
-        // Validate phone number (numeric, between 8-15 digits)
+ 
         if (empty($phoneNumber) || !preg_match('/^\d{8,15}$/', $phoneNumber)) {
             $errors[] = "Valid phone number (8-15 digits) is required!";
         }
@@ -57,18 +56,18 @@ class RegisterController {
         if (empty($errors)) {
             $role = 'user'; // Default role
 
-            // Create a new User object with the plain text password
+            // To Create a new User object with the plain text password
             $user = new User(null, $firstName, $lastName, $email, $password, $phoneNumber, $birthDate, $role);
             
-            // Insert the user into the database
+            // To Insert the user into the database
             $this->userRepository->insertUser($user);
 
-            // Redirect to login page with success message
+           
             header("Location: ../views/login.php?success=1");
             exit();
         }
 
-        return $errors; // Return any errors encountered
+        return $errors; 
     }
 }
 ?>

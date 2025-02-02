@@ -7,7 +7,7 @@
   
   body {
     font-family: 'Arial', sans-serif;
-    text-align: left; /* Align all text and content to the left */
+    text-align: left; 
     margin: 0;
     padding: 0;
   }
@@ -18,18 +18,18 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem 2rem;
     width: 100%;
-    position: relative; /* Ensure navbar is positioned for z-index to apply */
-    z-index: 10; /* Higher value to ensure it appears above the carousel */
+    position: relative; 
+    z-index: 10;
   }
   .navbar-container {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Align items vertically */
+    align-items: center; 
     width: 100%;
   }
   
   .navbar-brand {
-    margin-right: 20px; /* Space between logo and navbar links */
+    margin-right: 20px; 
   }
   
   .navbar-brand img {
@@ -47,12 +47,12 @@
   .navbar-nav {
     display: flex;
     list-style: none;
-    margin-left: 20px; /* Space between logo and first link */
+    margin-left: 20px; 
   }
   
   .navbar-nav .nav-link {
     font-weight: bold;
-    margin-right: 20px; /* Space between links */
+    margin-right: 20px; 
     color: #333;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -98,7 +98,7 @@
   /* Search Bar and Icons on the Right */
   .search-container {
     position: relative;
-    margin-left: auto; /* Pushes the search bar to the right */
+    margin-left: auto; 
   }
   
   #searchInput {
@@ -146,51 +146,12 @@
   
   
   
-  /* Mobile View */
-  @media (max-width: 768px) {
-    .navbar-links {
-      flex-direction: column;
-      display: none;
-      width: 100%;
-      padding-top: 1rem;
-      background-color: #fff;
-    }
-  
-    .navbar-links.active {
-      display: block;
-    }
-  
-    .navbar-nav {
-      flex-direction: column;
-      width: 100%;
-    }
-  
-    .navbar-nav .nav-link {
-      padding: 0.5rem 1rem;
-      width: 100%;
-      text-align: left;
-    }
-  
-    .search-container {
-      margin-top: 1rem;
-      width: 100%;
-    }
-  
-    #searchInput {
-      width: 100%;
-    }
-  
-    #searchIcon {
-      right: 20px;
-    }
-  }
-  
   /* General Carousel Styling */
   .carousel {
     position: relative;
     overflow: hidden;
     width: 100%;
-    z-index: 1; /* Lower value to place carousel behind other elements */
+    z-index: 1;
   }
   
   .carousel-inner {
@@ -327,11 +288,11 @@
     text-align: center;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
-    display: flex; /* Make the card a flex container */
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: space-between; /* Pushes button to the bottom */
-    height: 100%; /* Ensure all cards are equal height */
-    min-height: 350px; /* Adjust this value if needed */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    height: 100%; 
+    min-height: 350px; 
   }
   
   .card:hover {
@@ -343,8 +304,8 @@
       padding: 15px;
       flex-grow: 1;
       margin-bottom: 20px;
-      justify-content: flex-end; /* Shtoni këtë properti */
-  }/* Distributes space so the button stays at the bottom */
+      justify-content: flex-end; 
+  }
   
   
   .card-title {
@@ -356,7 +317,7 @@
   .card-text {
     font-size: 14px;
     color: #555;
-    flex-grow: 1; /* Pushes the button down when text content grows */
+    flex-grow: 1; 
   }
   
   
@@ -533,6 +494,47 @@
   }
   
   /* Responsive Layout */
+
+  @media (max-width: 768px) {
+    .navbar-links {
+      flex-direction: column;
+      display: none;
+      width: 100%;
+      padding-top: 1rem;
+      background-color: #fff;
+    }
+  
+    .navbar-links.active {
+      display: block;
+    }
+  
+    .navbar-nav {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .navbar-nav .nav-link {
+      padding: 0.5rem 1rem;
+      width: 100%;
+      text-align: left;
+    }
+  
+    .search-container {
+      margin-top: 1rem;
+      width: 100%;
+    }
+  
+    #searchInput {
+      width: 100%;
+    }
+  
+    #searchIcon {
+      right: 20px;
+    }
+  }
+
+
+
   @media (max-width: 768px) {
   .recipe-card {
     width: calc(50% - 30px); 
@@ -715,4 +717,123 @@
     border-radius: 8px;
     margin-bottom: 15px;
   }
-  
+  /* Tablet View (max-width: 1024px) */
+@media only screen and (max-width: 1024px) {
+  .navbar-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .navbar-links {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .recipe-card {
+      width: 45%; 
+  }
+
+  .hero-title {
+      font-size: 2rem;
+  }
+}
+
+/* Medium Screens (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+  .navbar-links {
+      display: none;
+  }
+
+  .navbar-links.active {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .recipe-card {
+      width: 100%; 
+  }
+
+  .header-title {
+      font-size: 1.8rem;
+  }
+
+  .hero-container {
+      padding: 20px;
+  }
+}
+
+/* Mobile Screens (max-width: 500px) */
+@media only screen and (max-width: 500px) {
+  .navbar {
+      padding: 0.5rem 1rem;
+  }
+
+  .navbar-brand img {
+      height: 40px;
+  }
+
+  .recipe-card {
+      width: 100%; /* Full width for better readability */
+  }
+
+  .header-title {
+      font-size: 1.5rem;
+  }
+
+  .search-container {
+      width: 100%;
+      text-align: center;
+  }
+
+  #searchInput {
+      width: 90%;
+  }
+
+  .hero-title {
+      font-size: 1.5rem;
+  }
+}
+/* Very Small Mobile Screens (max-width: 430px) */
+@media only screen and (max-width: 430px) {
+  .hero-text {
+      font-size: 22px; 
+      line-height: 1.2; 
+      text-align: center;
+      position: absolute;
+      top: 50%; 
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      max-width: 90%;
+  }
+}
+
+ /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                width: 95%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-text, .about-image {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 22px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }

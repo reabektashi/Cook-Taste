@@ -3,7 +3,7 @@ class DatabaseConnection {
     private $server = "127.0.0.1:3307";
     private $username = "root";
     private $password = "";
-    private $database = "cook_taste"; // Ndryshoni emrin e bazës së të dhënave sipas nevojës
+    private $database = "cook_taste"; 
     private $conn;
 
     public function startConnection() {
