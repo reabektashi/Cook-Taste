@@ -1,5 +1,13 @@
 <?php
+session_start();
 include_once '../controllers/LogInController.php';
+$hide = "";
+if (isset($_SESSION['role'])) {
+    $hide = ($_SESSION['role'] == "admin") ? "" : "hide";
+} else {
+    $hide = "hide";
+}
+
 
 $emailError = "";
 $passwordError = "";
@@ -47,6 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../Css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -71,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </ul>
                 </li>
                 <li><a class="nav-link" href="../views/aboutus.php">About Us</a></li>
-                <li><a class="nav-link" href="../views/dashboard.php">Dashboard</a></li>
+                <li class="<?php echo $hide; ?>"><a class="nav-link" href="../views/dashboard.php">Dashboard</a></li>
                 <li><a class="nav-link" href="logout.php">Logout</a></li>
             </ul>
         </div>
